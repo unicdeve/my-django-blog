@@ -25,7 +25,7 @@ class PostListView(ListView):
 
     def get_queryset(self):
         # __lte == less than or equal to
-        return Post.objects.filter(published_date__lte=timezone.now()).oreder_by('-published_date') 
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date') 
 
 class PostDetailView(DetailView):
     model = Post
@@ -52,7 +52,7 @@ class DraftListView(LoginRequiredMixin, ListView):
     model = Post
 
     def get_queryset(self):
-        return Post.objects.filter(published_date__isnull=True).oreder_by('created_date')
+        return Post.objects.filter(published_date__isnull=True).order_by('created_date')
 
 ############### Comment Views ###############
 @login_required
@@ -62,7 +62,7 @@ def post_publish(request, pk):
     return redirect('post_detail', pk=pk)
 
 @login_required
-def add_comment_to_post(request):
+def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
 
     if request.method == 'POST':

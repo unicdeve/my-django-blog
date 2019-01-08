@@ -10,7 +10,7 @@
       {% endif %}
       <form action="{% url 'login' %}" method="post">
           {% csrf_token %}
-          {% form.as_p %}
+          {{ form.as_p }}
           <input class=btn btn-primary type="submit" value="Login">
           <input class=btn btn-primary type="hidden" name='next' value="{{next}}">
       </form>

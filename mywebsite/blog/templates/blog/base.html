@@ -7,22 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Blog</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
-    <!-- Bootstrap Theme -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}">
-
-    <!-- Medium Style Editor -->
-    <script src="//cdn.jsdelivr.net/medium-editor/latest/js/medium-editor.min.js"></script>
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/medium-editor/latest/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        {# MEDIUM STYLE EDITOR#}
+        <script src="//cdn.jsdelivr.net/medium-editor/latest/js/medium-editor.min.js"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/medium-editor/latest/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+
+        {# Custom CSS#}
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+        {# Fonts#}
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
 </head>
-<body>
+<body class="loader">
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-default techfont custom-navbar">
@@ -43,8 +46,9 @@
                   <li>
                       <a href="{% url 'post_new' %}">Add New Post</a>
                   </li>
+
                   <li>
-                      <a href="{% url 'post_draft_list' %}">Drafts</a>
+                    <a href="{% url 'post_draft_list' %}">Drafts</a>
                   </li>
 
                   <li>
@@ -57,7 +61,7 @@
 
                   {% else %}
                   <li>
-                     <a href="{% url 'logint' %}"><span class="glyphicon glyphicon-user"></span></a>
+                     <li><a class='nav navbar-right' href="{% url 'login' %}" ><span class="glyphicon glyphicon-user"></span></a></li>
                   </li>
                 {% endif %}
             </ul>
